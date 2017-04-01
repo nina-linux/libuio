@@ -2,8 +2,8 @@
    uio_mmap.c
    UIO helper function: ... ... ...
 
+   Copyright (C) 2009, 2017, Stephan Linz <linz@li-pro.net>
    Copyright (C) 2009, Hans J. Koch <hjk@linutronix.de>
-   Copyright (C) 2009, Stephan Linz <linz@li-pro.net>
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License version 2 as
@@ -23,10 +23,21 @@
 
 #include "uio_helper.h"
 
-void uio_mmap(struct uio_info_t* info, int fd)
+static void __uio_mmap(struct uio_info_t* info, int fd,
+		uio_single_mmap_fp exec)
 {
 	int map_num;
 	if (!fd) return;
 	for (map_num= 0; map_num < MAX_UIO_MAPS; map_num++)
-		uio_single_mmap(info, map_num, fd);
+		exec(info, map_num, fd);
+}
+
+void uio_mmap(struct uio_info_t* info, int fd)
+{
+	__uio_mmap(info, fd, uio_single_mmap);
+}
+
+void uio_mmap_ro(struct uio_info_t* info, int fd)
+{
+	__uio_mmap(info, fd, uio_single_mmap_ro);
 }

@@ -2,9 +2,9 @@
    uio_helper
    UIO helper functions - header file.
 
+   Copyright (C) 2009, 2017, Stephan Linz <linz@li-pro.net>
    Copyright (C) 2013, Jean-Francois Dagenais <jeff.dagenais@gmail.com>
    Copyright (C) 2009, Hans J. Koch <hjk@linutronix.de>
-   Copyright (C) 2009, Stephan Linz <linz@li-pro.net>
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License version 2 as
@@ -76,13 +76,13 @@ int uio_get_version(struct uio_info_t* info);
 int uio_get_all_info(struct uio_info_t* info);
 int uio_get_device_attributes(struct uio_info_t* info);
 
+typedef void* (*uio_single_mmap_fp) (struct uio_info_t*, int, int);
 void* uio_single_mmap(struct uio_info_t* info, int map_num, int fd);
-<<<<<<< HEAD
-void uio_mmap(struct uio_info_t* info, int fd);
-=======
 void* uio_single_mmap_ro(struct uio_info_t* info, int map_num, int fd);
-inline void uio_mmap(struct uio_info_t* info, int fd);
->>>>>>> jeff-dagenais/ro_mmap
+
+typedef void (*uio_mmap_fp) (struct uio_info_t*, int);
+void uio_mmap(struct uio_info_t* info, int fd);
+void uio_mmap_ro(struct uio_info_t* info, int fd);
 
 void uio_single_munmap(struct uio_info_t* info, int map_num);
 void uio_munmap(struct uio_info_t* info);
