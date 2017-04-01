@@ -1,8 +1,10 @@
 libuio -- light-wight library to access UIO devices
 ---------------------------------------------------
 
-Copyright (C) 2007 Hans J. Koch
-Copyright (C) 2010 Stephan Linz
+Copyright (C) 2010-2017 by Stephan Linz
+Copyright (C) 2017 by Khem Raj
+Copyright (C) 2013 by Jean-Francois Dagenais
+Copyright (C) 2007 by Hans J. Koch
 
 
 libuio is a light-wight C programming library to handle UIO device
@@ -16,6 +18,11 @@ http://www.osadl.org/UIO.uio.0.html
 http://www.osadl.org/UIO.uio0.0.html
 http://www.osadl.org/projects/downloads/UIO
 http://lwn.net/Articles/232575/
+
+
+Alternative project libUIO by Linutronix:
+https://github.com/Linutronix/libuio
+git://git.linutronix.de/projects/libUIO
 
 
 Comments are welcome.
