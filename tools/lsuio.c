@@ -19,6 +19,7 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <getopt.h>
+#include <fcntl.h>
 
 #include "system.h"
 #include "uio_helper.h"
