@@ -2,6 +2,7 @@
    uio_single_mmap.c
    UIO helper function: ... ... ...
 
+   Copyright (C) 2013, Jean-Francois Dagenais <jeff.dagenais@gmail.com>
    Copyright (C) 2009, Hans J. Koch <hjk@linutronix.de>
    Copyright (C) 2009, Stephan Linz <linz@li-pro.net>
 
@@ -28,7 +29,8 @@
 
 #include "uio_helper.h"
 
-void* uio_single_mmap(struct uio_info_t* info, int map_num, int fd)
+static void* __uio_single_mmap(struct uio_info_t* info, int map_num, int fd,
+		int flags)
 {
 	if (!fd) return NULL;
 	info->maps[map_num].mmap_result = UIO_MMAP_NOT_DONE;
@@ -38,7 +40,7 @@ void* uio_single_mmap(struct uio_info_t* info, int map_num, int fd)
 		mmap(
 			NULL,
 			info->maps[map_num].size,
-			PROT_READ | PROT_WRITE,
+			flags,
 			MAP_SHARED,
 			fd,
 			map_num*getpagesize()
@@ -50,4 +52,14 @@ void* uio_single_mmap(struct uio_info_t* info, int map_num, int fd)
 	}
 
 	return NULL;
+}
+
+void* uio_single_mmap(struct uio_info_t* info, int map_num, int fd)
+{
+	return __uio_single_mmap(info, map_num, fd, PROT_READ | PROT_WRITE);
+}
+
+void* uio_single_mmap_ro(struct uio_info_t* info, int map_num, int fd)
+{
+	return __uio_single_mmap(info, map_num, fd, PROT_READ);
 }
