@@ -1,13 +1,14 @@
 libuio -- light-wight library to access UIO devices
 ---------------------------------------------------
 
+Copyright (C) 2023 by Nina Banerjee
 Copyright (C) 2010-2017 by Stephan Linz
 Copyright (C) 2017 by Khem Raj
 Copyright (C) 2013 by Jean-Francois Dagenais
 Copyright (C) 2007 by Hans J. Koch
 
 
-libuio is a light-wight C programming library to handle UIO device
+libuio is a light-weight C programming library to handle UIO device
 discovery and binding task. The library is based on the UIO example
 code lsuio v0.2.0 written by Hans J. Koch <hjk@linutronix.de>. Hans
 J. Koch maintains UIO in the Linux kernel.
