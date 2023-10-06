@@ -1,11 +1,13 @@
 name: C/C++ CI
 
 on:
+  workflow_dispatch
   push:
     branches: [ "gcc-11-support" ]
   pull_request:
     branches: [ "gcc-11-support" ]
-
+  
+  
 jobs:
   build:
 
