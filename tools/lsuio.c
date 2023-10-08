@@ -98,7 +98,7 @@ static void show_device(struct uio_info_t *info)
 {
 	char dev_name[16];
 	sprintf(dev_name,"uio%d",info->uio_num);
-	printf("%s: name=%s, version=%s, events=%ul\n",
+	printf("%s: name=%s, version=%s, events=%lu\n",
 	       dev_name, info->name, info->version, info->event_count);
 }
 
@@ -116,7 +116,7 @@ static int show_map(struct uio_info_t *info, int map_num)
 		printf(", mmap test: ");
 		switch (info->maps[map_num].mmap_result) {
 			case UIO_MMAP_NOT_DONE:
-				printf("N/A");
+				printf("N/bA");
 				break;
 			case UIO_MMAP_OK:
 				printf("OK");
