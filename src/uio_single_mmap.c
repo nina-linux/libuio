@@ -43,7 +43,7 @@ static void* __uio_single_mmap(struct uio_info_t* info, int map_num, int fd,
 			flags,
 			MAP_SHARED,
 			fd,
-			map_num*getpagesize()
+			(long)map_num*getpagesize()
 		);
 
 	if (info->maps[map_num].internal_addr != MAP_FAILED) {
