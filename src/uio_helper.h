@@ -39,7 +39,7 @@
 
 struct uio_map_t {
 	unsigned long addr;
-	int size;
+	long size;
 	int mmap_result;
 	void* internal_addr;
 };
