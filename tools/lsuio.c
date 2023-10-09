@@ -107,7 +107,7 @@ static int show_map(struct uio_info_t *info, int map_num)
 	if (info->maps[map_num].size <= 0)
 		return -1;
 
-	printf("\tmap[%d]: addr=0x%08lX, size=%d",
+	printf("\tmap[%d]: addr=0x%08lX, size=%ld",
 	       map_num,
 	       info->maps[map_num].addr,
 	       info->maps[map_num].size);
