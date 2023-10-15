@@ -2,9 +2,9 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "gcc-11-support" ]
+    branches: [ "cleanup-warnings" ]
   pull_request:
-    branches: [ "gcc-11-support" ]
+    branches: [ "cleanup-warnings" ]
 
 jobs:
   build:
